@@ -70,6 +70,7 @@ runs:
         fetch-depth: 0
 
     - name: CD into composite action
+      shell: bash
       run: |
         cd ${{ github.action_path }}
 
