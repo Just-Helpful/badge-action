@@ -97,6 +97,7 @@ runs:
     - name: Install dependencies
       shell: bash
       run: |
+        cd ${{ github.action_path }}
         composer install --no-dev --no-progress --no-interaction --optimize-autoloader
         if [ $? -ne 0 ]; then
           echo "::error::Failed to install dependencies"
@@ -127,7 +128,7 @@ runs:
 
         # Build base command
         CMD=(
-          php bin/badge
+          php ${{ github.action_path }}/bin/badge
           "$LABEL"
           "$STATUS"
           "${{ inputs.path }}"
