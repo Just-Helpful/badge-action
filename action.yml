@@ -83,12 +83,6 @@ runs:
         coverage: none
         tools: none
 
-    - name: Folder Structure
-      shell: bash
-      run: |
-        cd ${{ github.action_path }}
-        find . | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"
-
     - name: Install dependencies
       shell: bash
       run: |
