@@ -18,6 +18,7 @@ class CurlHttpClient implements HttpClientInterface
 {
     public function download(string $url): string
     {
+        echo($url);
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
