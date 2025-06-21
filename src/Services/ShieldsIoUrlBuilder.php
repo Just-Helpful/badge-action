@@ -56,7 +56,7 @@ class ShieldsIoUrlBuilder implements UrlBuilderInterface
             ['__', '--'],
             $str
         );
-        echo("url after replace $str");
+        echo("url after replace $str\n");
 
         // Then URL encode the string, preserving already encoded sequences
         $str = preg_replace_callback(
@@ -66,7 +66,7 @@ class ShieldsIoUrlBuilder implements UrlBuilderInterface
             },
             $str
         );
-        echo("url after encode $str");
+        echo("url after encode $str\n");
 
         return $str;
     }
