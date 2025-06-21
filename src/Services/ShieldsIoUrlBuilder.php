@@ -52,19 +52,23 @@ class ShieldsIoUrlBuilder implements UrlBuilderInterface
     {
         // First, handle special characters that need custom encoding
         $str = str_replace(
-            ['%', '_', '-'],
-            ['%25', '__', '--'],
+            ['_', '-'],
+            ['__', '--'],
             $str
         );
+        echo("url after replace $str");
 
         // Then URL encode the string, preserving already encoded sequences
-        return preg_replace_callback(
-            '/[^A-Za-z0-9\-._~%]/',
+        $str = preg_replace_callback(
+            '/[^A-Za-z0-9\-._~]/',
             function ($match) {
                 return rawurlencode($match[0]);
             },
             $str
         );
+        echo("url after encode $str");
+
+        return $str;
     }
 
     /**
